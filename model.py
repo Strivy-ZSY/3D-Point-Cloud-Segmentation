@@ -1,4 +1,3 @@
-%matplotlib widget
 import pandas as pd
 import numpy as np
 import matplotlib as mpl
@@ -102,4 +101,6 @@ To_Execl(n_clusters, s)
 for i in range(n_clusters):
     ax.scatter(hull_points[labels == i, 0], hull_points[labels == i, 1], hull_points[labels == i, 2], c=color[i])
 To_Legend(n_clusters)
- 
+
+plt.show()
+
