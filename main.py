@@ -41,7 +41,7 @@ def To_Execl(n_clusters, s):
         df.to_excel(writer)
         writer.save()
  
-data = pd.read_excel("PointCloud.xlsx")
+data = pd.read_excel("pointcloud.xlsx")
 points = data.to_numpy()
  
 tri = Delaunay(points)
