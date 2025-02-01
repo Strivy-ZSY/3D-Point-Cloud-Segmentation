@@ -53,7 +53,7 @@ for sim_tri in tri.simplices:
     normals.append(n)
 normals = np.array(normals)
  
-n_clusters = 3 # 这个参数是笔者手调的，也可以用auto-kmeans，让模型自适应
+n_clusters = 3 # 手调的参数，也可以用auto-kmeans，让模型自适应
 kmeans = KMeans(n_clusters=n_clusters, init="k-means++").fit(normals)
 labels = kmeans.labels_
  
@@ -85,7 +85,7 @@ for cluster in tri_ids:
  
 hull_points = StandardScaler().fit_transform(hull_points)
 hull_points = np.array(hull_points)
-db = DBSCAN(eps=0.26).fit(hull_points) # 0.26是超参数，手调，笔者还没研究，可以向几何重心于模型边缘距离关系方向研究试试
+db = DBSCAN(eps=0.26).fit(hull_points) # 0.26是超参数，手调的，可以向几何重心于模型边缘距离关系方向研究试试
 core_samples_mask = np.zeros_like(db.labels_, dtype=bool)
 core_samples_mask[db.core_sample_indices_] = True
 labels = db.labels_
